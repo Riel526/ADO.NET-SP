@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SDSolutionsExam.Models.ItemEntity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecycableTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComputedWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecycableTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComputedWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditItem", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteItem", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+    <p>
+        @Html.ActionLink("Create New", "AddItem", "Item")
+    </p>
+
+</table>
